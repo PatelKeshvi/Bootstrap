@@ -1,0 +1,964 @@
+* {
+    margin: 0;
+    box-sizing: border-box;
+}
+
+:root {
+    --bg-color: #222222;
+    --bg-color-rgb: 34, 34, 34;
+    --primary-color: #EC4D37;
+    --primary-color-rgb: 236, 77, 55;
+    --secondary-color-200: #7A7A7A;
+    --secondary-color-200-rgb: 122, 122, 122;
+    --secondary-color: #1D1D1D;
+    --secondary-color-rgb: 29, 29, 29;
+    --gray-color-100: #F1F1F1;
+    --gray-color-100-rgb: 241, 241, 241;
+    --white-color: #ffffff;
+    --title-font: 'Jost';
+    --discription-font: 'Space Grotesk';
+    --fs: 16px;
+    --fw: 400;
+    --lh: 1.5;
+    --gutter-width: 15px;
+    --transition: all 0.4s ease;
+}
+
+body {
+    background-color: var(--bg-color);
+    font-family: var(--discription-font);
+    font-size: var(--fs);
+    font-weight: var(--fw);
+    color: var(--secondary-color-200);
+    line-height: var(--lh);
+}
+
+a {
+    text-decoration: none;
+}
+
+img {
+    max-width: 100%;
+    display: block;
+}
+
+ul,
+ol {
+    list-style: none;
+    padding-left: 0;
+}
+
+.container {
+    max-width: 1320px;
+    margin-left: auto;
+    margin-right: auto;
+    padding-left: var(--gutter-width);
+    padding-right: var(--gutter-width);
+}
+
+.row {
+    display: flex;
+    flex-wrap: wrap;
+    margin-left: calc(-1 * var(--gutter-width));
+    margin-right: calc(-1 * var(--gutter-width));
+}
+
+.col-1 {
+    width: 8.3333%;
+}
+
+.col-2 {
+    width: 16.6666%;
+}
+
+.col-3 {
+    width: 25%;
+}
+
+.col-4 {
+    width: 33.3333%;
+}
+
+.col-5 {
+    width: 41.6666%;
+}
+
+.col-6 {
+    width: 50%;
+}
+
+.col-7 {
+    width: 58.3333%;
+}
+
+.col-8 {
+    width: 66.6666%;
+}
+
+.col-9 {
+    width: 75%;
+}
+
+.col-10 {
+    width: 83.3333%;
+}
+
+.col-11 {
+    width: 91.6666%;
+}
+
+.col-12 {
+    width: 100%;
+}
+
+.col-1,
+.col-2,
+.col-3,
+.col-4,
+.col-5,
+.col-6,
+.col-7,
+.col-8,
+.col-9,
+.col-10,
+.col-11,
+.col-12 {
+    padding-left: var(--gutter-width);
+    padding-right: var(--gutter-width);
+}
+
+.items-center {
+    align-items: center;
+}
+
+.justify-between {
+    justify-content: space-between;
+}
+
+.justify-center {
+    justify-content: center;
+}
+
+.py-110 {
+    padding-top: 110px;
+    padding-bottom: 110px;
+}
+
+.pt-110 {
+    padding-top: 110px;
+}
+
+.pb-110 {
+    padding-bottom: 110px;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    font-weight: 600;
+}
+
+.row-gap-30 {
+    row-gap: 30px;
+}
+
+/*==================== Header Section Start ====================*/
+header {
+    width: 100%;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    position: absolute;
+    z-index: 99;
+}
+
+header .container .row>* {
+    display: flex;
+    align-items: center;
+}
+
+.logo img {
+    height: 63px;
+}
+
+.toggle-btn {
+    display: none;
+    width: 40px;
+    height: 40px;
+    border-radius: 4px;
+    border: 1px solid var(--gray-color-100);
+    text-align: center;
+    line-height: 40px;
+    color: var(--gray-color-100);
+    margin-left: auto;
+}
+
+nav {
+    margin-left: auto;
+}
+
+nav>ul {
+    display: flex;
+}
+
+nav>ul>li>a {
+    display: block;
+    padding: 30px 13px;
+    color: var(--gray-color-100);
+    font-family: var(--title-font);
+    font-weight: 600;
+    text-transform: uppercase;
+    font-size: 14px;
+    transition: var(--transition);
+}
+
+nav>ul>li:first-child>a {
+    color: var(--secondary-color-200);
+}
+
+nav>ul>li:not(:first-child)>a:hover {
+    color: var(--primary-color);
+}
+
+.contact-btn {
+    margin-left: 50px;
+}
+
+.btn {
+    display: inline-block;
+    padding: 15px 25px;
+    background-color: var(--primary-color);
+    color: var(--white-color);
+    font-family: var(--title-font);
+    font-weight: 600;
+    letter-spacing: 1.5px;
+    border: 1px solid var(--primary-color);
+    transition: var(--transition);
+}
+
+.btn i {
+    margin-right: 5px;
+}
+
+.btn:hover {
+    background-color: transparent;
+}
+
+.dropdown,
+.submenu,
+.submenu>a,
+.about-img {
+    position: relative;
+}
+
+.dropdown-menu,
+.sub-dropdown-menu {
+    position: absolute;
+    min-width: 200px;
+    background-color: var(--secondary-color);
+    padding: 20px 0;
+    opacity: 0;
+    visibility: hidden;
+    top: 100%;
+    left: 0;
+    transition: var(--transition);
+}
+
+.dropdown-menu ul li a {
+    color: var(--white-color);
+    font-weight: 500;
+    font-size: 14px;
+    padding: 8px 20px;
+    display: block;
+}
+
+.sub-dropdown-menu {
+    top: 0;
+    left: 100%;
+}
+
+.submenu>a::after {
+    position: absolute;
+    content: '\f105';
+    font-family: 'font awesome 6 free';
+    font-weight: 900;
+    right: 20px;
+}
+
+.dropdown:hover .dropdown-menu,
+.submenu:hover .sub-dropdown-menu {
+    opacity: 1;
+    visibility: visible;
+}
+
+.dropdown>a i {
+    transition: var(--transition);
+}
+
+.dropdown>a:hover i {
+    transform: rotate(90deg);
+}
+
+/*==================== Header Section End ====================*/
+
+/*==================== Banner Section Start ====================*/
+.banner {
+    padding-top: 300px;
+    padding-bottom: 250px;
+    position: relative;
+    z-index: 2;
+}
+
+.banner::before {
+    position: absolute;
+    content: '';
+    width: 100%;
+    height: 100%;
+    background-image: url('/images/banner/banner-bg.jpg');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    top: 0;
+    left: 0;
+    z-index: -2;
+    background-color: var(--secondary-color);
+    background-blend-mode: lighten;
+    filter: brightness(100%) contrast(100%) saturate(0%) blur(0px) hue-rotate(0deg);
+}
+
+.banner::after {
+    position: absolute;
+    content: '';
+    width: 100%;
+    height: 100%;
+    background-image: radial-gradient(at center right, rgba(var(--secondary-color-rgb), 0) 0%, var(--bg-color) 100%);
+    top: 0;
+    left: 0;
+    z-index: -1;
+}
+
+.banner-content>*,
+.about-content>*:not(:last-child),
+.benefits-content>*:not(:last-child),
+.style .row:first-child,
+.offer .row:first-child,
+.offer-item img,
+.schedule-content>*:not(:last-child) {
+    margin-bottom: 30px;
+}
+
+.banner-content h1 {
+    font-family: var(--title-font);
+    font-size: 80px;
+    font-weight: 300;
+    line-height: 96px;
+    color: var(--white-color);
+}
+
+.banner-content h1 span {
+    display: block;
+    color: var(--primary-color);
+    font-weight: 600;
+}
+
+.divider {
+    width: 60%;
+    height: 1px;
+    background-color: var(--gray-color-100);
+}
+
+.banner-content p {
+    color: var(--gray-color-100);
+    font-size: 32px;
+    font-weight: 300;
+    font-family: var(--title-font);
+}
+
+.play-btn {
+    width: 70px;
+    height: 70px;
+    text-align: center;
+    line-height: 70px;
+    display: inline-block;
+    border: 1px solid var(--primary-color);
+    border-radius: 50%;
+    color: var(--white-color);
+    margin-left: 50px;
+    position: relative;
+    background-color: var(--bg-color);
+}
+
+.play-btn::before {
+    position: absolute;
+    content: '';
+    width: 100%;
+    height: 100%;
+    border-radius: 50%;
+    top: 0;
+    left: 0;
+    opacity: 0.6;
+    animation: ripple-effect 3s 0.3s infinite;
+    background-color: rgba(var(--gray-color-100-rgb), 1);
+    z-index: -1;
+}
+
+.play-btn::after {
+    position: absolute;
+    content: '';
+    width: 100%;
+    height: 100%;
+    border-radius: 50%;
+    top: 0;
+    left: 0;
+    opacity: 0.6;
+    animation: ripple-effect 3s 0.9s infinite;
+    background-color: rgba(var(--gray-color-100-rgb), 1);
+    z-index: -1;
+}
+
+@keyframes ripple-effect {
+    70% {
+        transform: scale(1.5);
+        opacity: 0;
+    }
+
+    100% {
+        transform: scale(2);
+        opacity: 0;
+    }
+}
+
+/* title */
+.title {
+    font-family: var(--title-font);
+    margin-bottom: 50px;
+}
+
+.title span {
+    display: inline-block;
+    color: var(--primary-color);
+    text-transform: uppercase;
+    margin-bottom: 20px;
+    font-weight: 600;
+    letter-spacing: 1.5px;
+}
+
+.title h2 {
+    font-size: 48px;
+    color: var(--white-color);
+    line-height: 56px;
+}
+
+/*==================== Banner Section End ====================*/
+
+/*==================== Collaboration Section Start ====================*/
+.collaboration .title,
+.schedule .title,
+.schedule-content,
+.price .title {
+    text-align: center;
+}
+
+.collaboration-img img {
+    height: 60px;
+    margin: 0 auto;
+    opacity: 0.6;
+}
+
+/*==================== Collaboration Section End ====================*/
+
+/*==================== About Section Start ====================*/
+.about,
+.benefit {
+    background-color: var(--secondary-color);
+}
+
+.about-square {
+    width: 150px;
+    height: 300px;
+    background-color: var(--primary-color);
+    position: absolute;
+    bottom: -20px;
+    left: -20px;
+    z-index: -1;
+}
+
+.special-services {
+    display: flex;
+    align-items: center;
+}
+
+.service-icon {
+    margin-right: 20px;
+}
+
+.service-icon img {
+    width: 100px;
+}
+
+.service-content h4 {
+    font-size: 25px;
+    color: var(--gray-color-100);
+    margin: 10px 0;
+}
+
+/*==================== Style Section Start ====================*/
+.style .title,
+.offer .title {
+    margin-bottom: 0;
+}
+
+.style-item {
+    background-image: url('/images/style/making-haircut-look-perfect.jpg');
+    background-position: center center;
+    background-size: cover;
+    background-repeat: no-repeat;
+    height: 380px;
+    padding: 32px;
+    position: relative;
+    z-index: 1;
+    overflow: hidden;
+}
+
+.style-item::before {
+    position: absolute;
+    content: '';
+    width: 100%;
+    height: 100%;
+    background-image: linear-gradient(180deg, rgba(var(--secondary-color-rgb), 0) 0%, var(--bg-color) 100%);
+    top: 5%;
+    left: 0;
+    z-index: -1;
+}
+
+.style .row:nth-child(2) .col-4:nth-child(2) .style-item {
+    background-image: url('/images/style/guy-gets-a-haircut-in-modern-and-luxurious-barbers.jpg');
+}
+
+.style .row:nth-child(2) .col-4:nth-child(3) .style-item {
+    background-image: url('/images/style/young-bearded-man-getting-haircut-by-hairdresser.jpg');
+}
+
+.style-content {
+    position: absolute;
+    left: 32px;
+    right: 32px;
+    bottom: -35%;
+    color: var(--gray-color-100);
+    cursor: pointer;
+    transition: var(--transition);
+}
+
+.style-content span {
+    background-color: var(--primary-color);
+    display: inline-block;
+    font-family: var(--title-font);
+    line-height: 1;
+    padding: 7px 9px;
+    font-weight: 600;
+    margin-bottom: 10px;
+}
+
+.style-content h4 {
+    font-family: var(--title-font);
+    font-size: 26px;
+    margin-bottom: 15px;
+}
+
+.style-content .btn {
+    border-radius: 5px;
+    padding: 10px 25px;
+    margin-top: 20px;
+}
+
+.style-content:hover {
+    bottom: 32px;
+}
+
+/*==================== Style Section End ====================*/
+
+/*==================== Benefit Section Start ====================*/
+.counter {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 30px;
+}
+
+.counter-item {
+    padding: 32px;
+    flex-basis: 47%;
+    color: var(--gray-color-100);
+    font-family: var(--title-font);
+    border: 1px solid transparent
+}
+
+.counter-item:first-child,
+.counter-item:last-child {
+    border-color: rgba(var(--gray-color-100-rgb), 0.4);
+}
+
+.counter-item:nth-child(2),
+.counter-item:nth-child(3) {
+    background-color: var(--bg-color);
+}
+
+.counter-item h3 {
+    font-size: 64px;
+    line-height: 1;
+    margin-bottom: 15px;
+}
+
+.counter-item h3 i {
+    font-size: 32px;
+    vertical-align: top;
+}
+
+.counter-item p {
+    font-size: 20px;
+    font-weight: 700;
+}
+/*==================== Benefit Section End ====================*/
+
+/*==================== Schedule Section Start ====================*/
+.schedule {
+    background-image: url('/images/schedule/the-barber-dressed-in-black-clothes-makes-a-razor.jpg');
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-attachment: fixed;
+    position: relative;
+    z-index: 1;
+}
+
+.schedule::before {
+    position: absolute;
+    content: '';
+    width: 100%;
+    height: 100%;
+    background-color: rgba(var(--secondary-color-rgb), 0.8);
+    top: 0;
+    left: 0;
+    z-index: -1;
+}
+/*==================== Schedule Section End ====================*/
+
+/*==================== Offer Section Start ====================*/
+.offer-item {
+    border: 1px solid var(--gray-color-100);
+    padding: 32px;
+}
+
+.offer-item img {
+    max-width: 70px;
+}
+
+.offer-item h4 {
+    font-size: 24px;
+    color: var(--white-color);
+    font-family: var(--title-font);
+    margin-bottom: 10px;
+}
+
+.offer-item p {
+    margin-bottom: 20px;
+}
+
+.offer-item a {
+    font-family: var(--title-font);
+    color: var(--white-color);
+    font-weight: 600;
+}
+
+.offer-item a i {
+    font-size: 14px;
+    margin-left: 10px;
+}
+
+.offer .row {
+    row-gap: 30px;
+}
+/*==================== Offer Section End ====================*/
+
+/*==================== Price Section Start ====================*/
+.price {
+    background-color: var(--secondary-color);
+    position: relative;
+    z-index: 1;
+}
+
+.price::before {
+    position: absolute;
+    content: '';
+    width: 100%;
+    height: 100%;
+    background-image: url('/images/price/barber-is-holding-a-brush-for-powder-hairdresser-a-QYFTBJD.png');
+    background-size: cover;
+    background-position: center bottom;
+    top: 0;
+    left: 0;
+    z-index: -1;
+    opacity: 0.2;
+}
+
+.pricing-list {
+    border: 1px solid var(--primary-color);
+    padding: 60px 40px;
+    text-align: center;
+}
+
+.pricing-list h3 {
+    background-color: var(--primary-color);
+    display: inline-block;
+    padding: 10px 24px;
+    font-family: var(--title-font);
+    color: var(--white-color);
+    font-size: 24px;
+    margin-bottom: 30px;
+}
+
+.plan-list {
+    text-align: left;
+}
+
+.plan-title {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    column-gap: 10px;
+    margin-bottom: 15px;
+}
+
+.plan-title h4,
+.plan-title span {
+    font-size: 20px;
+    color: var(--white-color);
+    font-family: var(--title-font);
+    font-weight: 600;
+}
+
+.pricing-list .plan-list:not(:last-child) {
+    margin-bottom: 30px;
+}
+
+.plan-divider {
+    flex-grow: 1;
+    height: 1px;
+    border-top: 1px dotted rgba(var(--gray-color-100-rgb), 0.4);
+}
+/*==================== Price Section End ====================*/
+
+/*==================== Review Section Start ====================*/
+.review {
+    position: relative;
+}
+
+.review .row .review-item {
+    width: 30%;
+    padding: 32px;
+    padding-top: 64px;
+    background-color: var(--secondary-color);
+    position: relative;
+    text-align: center;
+    margin-top: 70px;
+}
+
+.review .row .review-item:nth-child(2) {
+    width: 36%;
+}
+
+.user-img img {
+    width: 100px;
+    border-radius: 50%;
+    border: 7px solid var(--secondary-color);
+    position: absolute;
+    top: -50px;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+.review .user-name h4 {
+    font-size: 25px;
+    font-family: var(--title-font);
+    color: var(--gray-color-100);
+    margin-bottom: 30px;
+}
+
+.review .row .review-item:nth-child(2) .user-name h4 {
+    font-size: 32px;
+}
+
+.review .user-review p {
+    font-size: 18px;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    font-family: var(--title-font);
+}
+
+.review .row .review-item:nth-child(2) .user-review p {
+    font-size: 20px;
+}
+
+.review .user-review i {
+    font-size: 28px;
+    color: var(--primary-color);
+}
+
+.tagline {
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    top: 8%;
+}
+
+.tagline h2 {
+    font-size: 128px;
+    text-transform: uppercase;
+    font-family: var(--title-font);
+    font-weight: 300;
+    letter-spacing: 20px;
+    color: rgba(var(--gray-color-100-rgb), 0.1);
+
+}
+/*==================== Review Section End ====================*/
+
+/*==================== Footer Section Start ====================*/
+footer {
+    background-color: var(--secondary-color);
+    width: 100%;
+    position: relative;
+    z-index: 1;
+}
+
+footer::before {
+    position: absolute;
+    content: '';
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    background-image: url('../images/footer/Footer-BG.jpg');
+    background-size: cover;
+    background-position: center;
+    filter: brightness(100%) contrast(100%) saturate(0%) hue-rotate(0deg) blur(0);
+    opacity: 0.1;
+    z-index: -1;
+}
+
+.footer-item h4 img {
+    height: 80px;
+}
+
+.footer-item h4 {
+    font-size: 24px;
+    font-family: var(--title-font);
+    margin-bottom: 20px;
+    color: var(--white-color);
+}
+
+.footer-item p {
+    margin-bottom: 20px;
+}
+
+.footer-item .social-icon ul {
+    display: flex;
+    column-gap: 10px;
+}
+
+.footer-item .social-icon ul li a {
+    display: block;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    background-color: var(--primary-color);
+    text-align: center;
+    line-height: 40px;
+    color: var(--white-color);
+    border: 2px solid var(--primary-color);
+    transition: var(--transition);
+}
+
+.footer-item .social-icon ul li a:hover {
+    background-color: transparent;
+    border-color: var(--white-color);
+}
+
+.footer-item>ul>li>a {
+    display: block;
+    padding-left: 30px;
+    font-family: var(--title-font);
+    color: var(--secondary-color-200);
+    font-weight: 500;
+    position: relative;
+}
+
+.footer-item>ul>li>a::before {
+    position: absolute;
+    content: '\f138';
+    font-family: 'font awesome 6 free';
+    font-weight: 900;
+    left: 0;
+    color: var(--primary-color);
+}
+
+.footer-item>ul>li:not(:last-child) {
+    margin-bottom: 10px;
+}
+
+.form-control,
+.form-submit {
+    width: 100%;
+    display: block;
+    border: none;
+    outline: none;
+    padding: 15px;
+    color: var(--white-color);
+    font-family: var(--title-font);
+    font-size: 16px;
+}
+
+.form-control {
+    background-color: transparent;
+    margin-bottom: 20px;
+    border-bottom: 1px solid var(--primary-color);
+}
+
+.form-submit {
+    background-color: var(--primary-color);
+    border: 1px solid var(--primary-color);
+    font-weight: 600;
+    letter-spacing: 1px;
+}
+
+.copy-right {
+    width: 100%;
+    background-color: var(--secondary-color);
+    padding-top: 32px;
+    padding-bottom: 32px;
+    font-family: var(--title-font);
+}
+
+.footer-link a,
+.copy-right-sagment p {
+    font-weight: 600;
+    color: var(--secondary-color-200);
+}
+
+.footer-link a:first-child {
+    margin-right: 50px;
+}
+
+body[data-aos-duration="400"] [data-aos] {
+    transition-duration: 2s;
+}
+
+.review,
+.price,
+.offer,
+.benefit,
+.style,
+.about {
+    overflow-x: hidden;
+}
+/*==================== Footer Section End ====================*/
